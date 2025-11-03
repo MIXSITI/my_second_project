@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Мета-теги для правильного отображения страницы -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас - FoodHub</title>
+
+    <!-- Подключение Bootstrap CSS для адаптивной верстки -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Подключение Font Awesome для иконок -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Пользовательские стили -->
+    <style>
+        /* Определение цветовых переменных для единообразного дизайна */
+        :root {
+            --primary-color: #E74C3C;        /* Основной красно-оранжевый цвет */
+            --secondary-color: #C0392B;      /* Вторичный темный красный */
+            --accent-color: #F39C12;         /* Акцентный золотой цвет */
+            --background-color: #FFF5E6;     /* Кремово-белый цвет фона */
+            --text-color: #5D4037;           /* Темно-коричневый цвет текста */
+        }
+
+        /* Основные стили для тела страницы */
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Georgia', serif;
+            padding-top: 70px;
+        }
+
+        /* Стили для навигационной панели */
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        /* Стили для элементов навигации */
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        /* Стили для основных кнопок */
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        /* Эффект наведения для основных кнопок */
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Стили для кнопки входа в навигации */
+        .btn-login {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Эффект наведения для кнопки входа */
+        .btn-login:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        /* Стили для карточек контента */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Эффект подъема при наведении на карточку */
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Стили для заголовков карточек */
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+        }
+
+        /* Стили для подвала сайта */
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Стили для модальных окон */
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        /* Стили для заголовков модальных окон */
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* Стили для полей ввода в фокусе */
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+        }
+
+        /* Стили для заголовков */
+        h2, h3 {
+            color: var(--primary-color);
+        }
+
+        /* Стили для информационных блоков */
+        .info-block {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .info-block h3 {
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-color);
+            margin-right: 15px;
+            font-size: 1.5rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .hours-table {
+            width: 100%;
+        }
+
+        .hours-table tr {
+            border-bottom: 1px solid #eee;
+        }
+
+        .hours-table td {
+            padding: 10px 0;
+        }
+
+        .hours-table td:first-child {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Логотип и название магазина -->
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-utensils me-2"></i>FoodHub</a>
+
+            <!-- Кнопка для мобильного меню -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Меню навигации -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Меню</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orders.html">Мои заказы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-login btn-sm ms-2" href="#loginModal" data-bs-toggle="modal">Войти</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">О FoodHub</h2>
+
+            <!-- Блок контактов -->
+            <div class="row g-4">
+                <!-- Контактная информация -->
+                <div class="col-lg-6">
+                    <div class="info-block">
+                        <h3><i class="fas fa-phone me-2"></i>Контакты</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <strong>Телефон:</strong><br>
+                                +7 (495) 123-45-67<br>
+                                <small>Рабочие дни с 9:00 до 20:00</small>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email:</strong><br>
+                                info@foodhub.ru<br>
+                                <small>Ответим в течение 2 часов</small>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Адрес:</strong><br>
+                                г. Москва, ул. Пушкина, 42<br>
+                                <small>Посетите наш офис лично</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Часы работы -->
+                <div class="col-lg-6">
+                    <div class="info-block">
+                        <h3><i class="fas fa-clock me-2"></i>Часы работы</h3>
+                        <table class="hours-table">
+                            <tr>
+                                <td>Понедельник - Пятница</td>
+                                <td>11:00 - 23:00</td>
+                            </tr>
+                            <tr>
+                                <td>Суббота</td>
+                                <td>10:00 - 00:00</td>
+                            </tr>
+                            <tr>
+                                <td>Воскресенье</td>
+                                <td>10:00 - 23:00</td>
+                            </tr>
+                            <tr>
+                                <td>Праздничные дни</td>
+                                <td>11:00 - 22:00</td>
+                            </tr>
+                        </table>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                            <p><strong>Минимальная сумма заказа:</strong> 300 ₽</p>
+                            <p><strong>Стоимость доставки:</strong> От 100 ₽</p>
+                            <p><strong>Время доставки:</strong> 30-45 минут</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="info-block">
+                        <h3><i class="fas fa-envelope me-2"></i>Свяжитесь с нами</h3>
+                        <p>Заполните форму ниже и мы ответим вам в ближайшее время</p>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Ваше имя</label>
+                                <input type="text" class="form-control" placeholder="Введите ваше имя" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" placeholder="ваш@email.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Тема</label>
+                                <select class="form-select" required>
+                                    <option value="">Выберите тему...</option>
+                                    <option value="complaint">Жалоба</option>
+                                    <option value="suggestion">Предложение</option>
+                                    <option value="question">Вопрос</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Сообщение</label>
+                                <textarea class="form-control" rows="5" placeholder="Введите ваше сообщение..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100" onclick="sendMessage(event)">
+                                <i class="fas fa-paper-plane me-2"></i>Отправить сообщение
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информация о доставке -->
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="info-block">
+                        <h3><i class="fas fa-truck me-2"></i>Информация о доставке</h3>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <p><strong>Как это работает?</strong></p>
+                                <p>1. Выберите блюда из нашего меню<br>
+                                2. Оформите заказ<br>
+                                3. Нас курьер доставит вам горячее блюдо</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <p><strong>Методы оплаты</strong></p>
+                                <p>• Карта VISA/MasterCard<br>
+                                • Яндекс.Касса<br>
+                                • Сбербанк Онлайн<br>
+                                • Наличные при доставке</p>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <p><strong>Гарантии</strong></p>
+                                <p>• Свежесть продуктов гарантирована<br>
+                                • Качество блюд<br>
+                                • Пунктуальная доставка<br>
+                                • Возврат денег при проблеме</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Левая колонка - информация о сервисе -->
+                <div class="col-md-6">
+                    <h5><i class="fas fa-utensils me-2"></i>FoodHub</h5>
+                    <p>Ваш любимый сервис доставки еды в городе</p>
+                </div>
+
+                <!-- Правая колонка - контактная информация -->
+                <div class="col-md-6 text-end">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-phone me-2"></i>+7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope me-2"></i>info@foodhub.ru</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно входа -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вход в аккаунт</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Это демо-версия. Для входа используйте любой email и пароль.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="ваш@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Пароль</label>
+                            <input type="password" class="form-control" placeholder="••••••••">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Войти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript Bootstrap для интерактивности -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Встроенный JavaScript -->
+    <script>
+        function sendMessage(event) {
+            event.preventDefault();
+            alert('Спасибо! Ваше сообщение было успешно отправлено. Мы свяжемся с вами в ближайшее время.');
+            // Очищаем форму
+            document.querySelector('form').reset();
+        }
+    </script>
+</body>
+</html>
