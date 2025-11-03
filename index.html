@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHub - Быстрая доставка еды</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #E74C3C;
+            --secondary-color: #C0392B;
+            --accent-color: #F39C12;
+            --background-color: #FFF5E6;
+            --text-color: #5D4037;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Georgia', serif;
+            padding-top: 70px;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-login {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-login:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(231, 76, 60, 0.8), rgba(192, 57, 43, 0.8)), 
+                        url('https://images.unsplash.com/photo-1495521821757-a1efb6729352?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            margin-top: -70px;
+            padding-top: 150px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+        }
+
+        h2 {
+            color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+        }
+
+        .price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-utensils me-2"></i>FoodHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Меню</a></li>
+                    <li class="nav-item"><a class="nav-link" href="orders.html">Мои заказы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">О нас</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-login btn-sm ms-2" href="#loginModal" data-bs-toggle="modal">Войти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Вкусная еда, быстрая доставка!</h1>
+            <p class="lead mb-4">Заказывайте ваши любимые блюда прямо сейчас</p>
+            <a href="menu.html" class="btn btn-primary btn-lg"><i class="fas fa-utensils me-2"></i>Выбрать блюдо</a>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Почему выбирают нас?</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3"><i class="fas fa-bolt"></i></div>
+                            <h5 class="card-title">Быстрая доставка</h5>
+                            <p class="card-text">Доставим за 30-45 минут</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3"><i class="fas fa-check-circle"></i></div>
+                            <h5 class="card-title">Качественные продукты</h5>
+                            <p class="card-text">Только свежие ингредиенты</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3"><i class="fas fa-coins"></i></div>
+                            <h5 class="card-title">Приятные цены</h5>
+                            <p class="card-text">Лучшие цены и акции</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <div class="feature-icon mb-3"><i class="fas fa-headset"></i></div>
+                            <h5 class="card-title">24/7 Поддержка</h5>
+                            <p class="card-text">Готовы помочь всегда</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background-color: white;">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Популярные блюда</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header"><h5 class="mb-0">Паста Болоньезе</h5></div>
+                        <div class="card-body">
+                            <p class="card-text">Классическая итальянская паста с мясным соусом и пармезаном</p>
+                            <p class="price">450 ₽</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100" onclick="addToCart('Паста Болоньезе', 450)">
+                                <i class="fas fa-shopping-cart me-2"></i>Добавить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header"><h5 class="mb-0">Пицца Маргарита</h5></div>
+                        <div class="card-body">
+                            <p class="card-text">Тонкая пицца с помидорами, моцареллой и свежим базиликом</p>
+                            <p class="price">520 ₽</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100" onclick="addToCart('Пицца Маргарита', 520)">
+                                <i class="fas fa-shopping-cart me-2"></i>Добавить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100">
+                        <div class="card-header"><h5 class="mb-0">Суши Калифорния</h5></div>
+                        <div class="card-body">
+                            <p class="card-text">Суши ролл с крабом, авокадо и огурцом</p>
+                            <p class="price">380 ₽</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100" onclick="addToCart('Суши Калифорния', 380)">
+                                <i class="fas fa-shopping-cart me-2"></i>Добавить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Отзывы наших клиентов</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial-card card p-4">
+                        <p class="mb-3">"Заказываю уже полгода, еда всегда свежая и вкусная!"</p>
+                        <div class="text-end"><strong>— Александр Петров</strong></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card card p-4">
+                        <p class="mb-3">"Отличный выбор блюд со всего мира. Рекомендую!"</p>
+                        <div class="text-end"><strong>— Мария Сидорова</strong></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card card p-4">
+                        <p class="mb-3">"Удобное приложение, стал постоянным клиентом!"</p>
+                        <div class="text-end"><strong>— Иван Смирнов</strong></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-utensils me-2"></i>FoodHub</h5>
+                    <p>Ваш любимый сервис доставки еды в городе</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-phone me-2"></i>+7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope me-2"></i>info@foodhub.ru</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вход в аккаунт</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="ваш@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Пароль</label>
+                            <input type="password" class="form-control" placeholder="••••••••">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Войти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cart = [];
+        function addToCart(name, price) {
+            cart.push({name, price});
+            alert(`"${name}" добавлено в корзину! (Всего: ${cart.length})`);
+        }
+    </script>
+</body>
+</html>
