@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- Мета-теги для правильного отображения страницы -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - FoodHub</title>
+
+    <!-- Подключение Bootstrap CSS для адаптивной верстки -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Подключение Font Awesome для иконок -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Пользовательские стили -->
+    <style>
+        /* Определение цветовых переменных для единообразного дизайна */
+        :root {
+            --primary-color: #E74C3C;        /* Основной красно-оранжевый цвет */
+            --secondary-color: #C0392B;      /* Вторичный темный красный */
+            --accent-color: #F39C12;         /* Акцентный золотой цвет */
+            --background-color: #FFF5E6;     /* Кремово-белый цвет фона */
+            --text-color: #5D4037;           /* Темно-коричневый цвет текста */
+        }
+
+        /* Основные стили для тела страницы */
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: 'Georgia', serif;
+            padding-top: 70px;
+        }
+
+        /* Стили для навигационной панели */
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        /* Стили для элементов навигации */
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        /* Стили для основных кнопок */
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        /* Эффект наведения для основных кнопок */
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Стили для кнопки входа в навигации */
+        .btn-login {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Эффект наведения для кнопки входа */
+        .btn-login:hover {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        /* Стили для карточек контента */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /* Эффект подъема при наведении на карточку */
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Стили для заголовков карточек */
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+        }
+
+        /* Стили для подвала сайта */
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Стили для модальных окон */
+        .modal-content {
+            border-radius: 15px;
+        }
+
+        /* Стили для заголовков модальных окон */
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        /* Стили для полей ввода в фокусе */
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(243, 156, 18, 0.25);
+        }
+
+        /* Стили для заголовков */
+        h2 {
+            color: var(--primary-color);
+        }
+
+        /* Стили для цены */
+        .price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Стили для иконок */
+        .dish-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Логотип и название магазина -->
+            <a class="navbar-brand fw-bold" href="index.html"><i class="fas fa-utensils me-2"></i>FoodHub</a>
+
+            <!-- Кнопка для мобильного меню -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Меню навигации -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Меню</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orders.html">Мои заказы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">О нас</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-login btn-sm ms-2" href="#loginModal" data-bs-toggle="modal">Войти</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Основной контент -->
+    <main class="py-5">
+        <div class="container">
+            <!-- Заголовок страницы -->
+            <h2 class="text-center mb-5 fw-bold">Наше меню</h2>
+
+            <!-- Фильтр категорий -->
+            <div class="text-center mb-5">
+                <button class="btn btn-sm btn-primary me-2 mb-2 category-btn" onclick="filterCategory('all')">Все</button>
+                <button class="btn btn-sm btn-primary me-2 mb-2 category-btn" onclick="filterCategory('pasta')">Паста</button>
+                <button class="btn btn-sm btn-primary me-2 mb-2 category-btn" onclick="filterCategory('pizza')">Пицца</button>
+                <button class="btn btn-sm btn-primary me-2 mb-2 category-btn" onclick="filterCategory('sushi')">Суши</button>
+                <button class="btn btn-sm btn-primary me-2 mb-2 category-btn" onclick="filterCategory('other')">Другое</button>
+            </div>
+
+            <!-- Сетка карточек блюд -->
+            <div class="row g-4" id="dishesContainer">
+                <!-- Карточки будут вставлены JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Подвал сайта -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Левая колонка - информация о сервисе -->
+                <div class="col-md-6">
+                    <h5><i class="fas fa-utensils me-2"></i>FoodHub</h5>
+                    <p>Ваш любимый сервис доставки еды в городе</p>
+                </div>
+
+                <!-- Правая колонка - контактная информация -->
+                <div class="col-md-6 text-end">
+                    <h5>Контакты</h5>
+                    <p><i class="fas fa-phone me-2"></i>+7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope me-2"></i>info@foodhub.ru</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно входа -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вход в аккаунт</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Это демо-версия. Для входа используйте любой email и пароль.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="ваш@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Пароль</label>
+                            <input type="password" class="form-control" placeholder="••••••••">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Войти</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключение JavaScript Bootstrap для интерактивности -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Встроенный JavaScript -->
+    <script>
+        const dishes = [
+            { id: 1, name: 'Паста Болоньезе', description: 'Классическая итальянская паста с мясным соусом и пармезаном', price: 450, category: 'pasta', icon: 'fa-utensils' },
+            { id: 2, name: 'Пицца Маргарита', description: 'Тонкая пицца с помидорами, моцареллой и свежим базиликом', price: 520, category: 'pizza', icon: 'fa-pizza-slice' },
+            { id: 3, name: 'Суши Калифорния', description: 'Суши ролл с крабом, авокадо и огурцом', price: 380, category: 'sushi', icon: 'fa-fish' },
+            { id: 4, name: 'Бургер Классический', description: 'Сочный бургер с говяжьей котлетой, салатом и помидором', price: 320, category: 'other', icon: 'fa-burger' },
+            { id: 5, name: 'Тикка Масала', description: 'Индийское блюдо с курицей в сливочном соусе', price: 480, category: 'other', icon: 'fa-fire' },
+            { id: 6, name: 'Цезарь салат', description: 'Свежий салат с курицей, пармезаном и сухариками', price: 290, category: 'other', icon: 'fa-leaf' },
+            { id: 7, name: 'Рамен', description: 'Японский суп лапша с куриным бульоном и овощами', price: 420, category: 'other', icon: 'fa-bowl' },
+            { id: 8, name: 'Фалафель', description: 'Хрустящие подушечки из нута с хумусом и овощами', price: 240, category: 'other', icon: 'fa-bread-slice' },
+            { id: 9, name: 'Тако', description: 'Мексиканские тако с говяжьим фаршем, сальсой и авокадо', price: 300, category: 'other', icon: 'fa-pepper-hot' },
+            { id: 10, name: 'Паста Карбонара', description: 'Паста со сливочным соусом, беконом и сыром', price: 470, category: 'pasta', icon: 'fa-egg' }
+        ];
+
+        let currentFilter = 'all';
+        let cart = [];
+
+        function renderDishes(filter = 'all') {
+            const container = document.getElementById('dishesContainer');
+            container.innerHTML = '';
+
+            const filtered = filter === 'all' ? dishes : dishes.filter(d => d.category === filter);
+
+            filtered.forEach(dish => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4';
+                col.innerHTML = `
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <div class="dish-icon">
+                                <i class="fas ${dish.icon}"></i>
+                            </div>
+                            <h5 class="mb-0">${dish.name}</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">${dish.description}</p>
+                            <p class="price">${dish.price} ₽</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0 pb-3">
+                            <button class="btn btn-primary w-100" onclick="addToCart('${dish.name}', ${dish.price})">
+                                <i class="fas fa-shopping-cart me-2"></i>Добавить
+                            </button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(col);
+            });
+        }
+
+        function filterCategory(category) {
+            currentFilter = category;
+            renderDishes(category);
+        }
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            alert(`"${name}" добавлено в корзину! (Всего товаров: ${cart.length})`);
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDishes();
+        });
+    </script>
+</body>
+</html>
